@@ -11,9 +11,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'etl-pipeline-lightweight',
-    title: 'Lightweight ETL Pipeline for CSV → SQLite',
-    short: 'ETL',
-    summary: 'Python + Pandas pipeline with idempotent loads and schema checks.',
+    title: 'sdadas',
+    short: 'asdasdd',
+    summary: 'sadasdasdasdas',
     date: '2025-06-01',
     tags: ['Python', 'Pandas', 'SQLite'],
     report: `<p>Built a compact ETL that ingests CSVs, normalizes schema, and loads into SQLite with idempotent upserts.

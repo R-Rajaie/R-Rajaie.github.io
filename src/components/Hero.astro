@@ -1,13 +1,40 @@
 <section class="hero">
-  <div class="container">
-    <p class="muted">Hi, I’m</p>
-    <h1>Ryan — Data Analyst who turns messy data into clear decisions.</h1>
-    <p>
-      I build lean analytics pipelines and crisp visualizations. Here you’ll find a curated set of projects, short write‑ups, and how to reach me.
-    </p>
-    <div class="cta">
-      <a class="btn" href="/projects">View Projects</a>
-      <a class="btn ghost" href="#contact">Contact Me</a>
-    </div>
-  </div>
+	<div class="container">
+		<p class="muted">Hi, I’m</p>
+		<h1 id="hero-typed"></h1>
+		<p id="hero-subtext-wrapper"><span id="hero-subtext"></span><span id="hero-cursor" class="blinking-cursor">|</span></p>
+		<div class="cta">
+			<a class="btn" href="/#projects">View Projects</a>
+			<a class="btn ghost" href="/#contact">Contact Me</a>
+		</div>
+	</div>
+		<script is:inline>
+			const heroText = "Ryan Rajaie —  catchy hook";
+			const subText = "i do blah blah blah. here you will find stuff";
+				const typedEl = document.getElementById('hero-typed');
+				const cursorEl = document.getElementById('hero-cursor');
+				const subTextEl = document.getElementById('hero-subtext');
+				let i = 0;
+				let j = 0;
+				function typeHero() {
+					if (i <= heroText.length) {
+						typedEl.textContent = heroText.slice(0, i);
+						i++;
+						setTimeout(typeHero, 32 + Math.random() * 40);
+					} else {
+						setTimeout(typeSubText, 350);
+					}
+				}
+				function typeSubText() {
+					if (j <= subText.length) {
+						subTextEl.textContent = subText.slice(0, j);
+						j++;
+						setTimeout(typeSubText, 7 + Math.random() * 13);
+					} else {
+						cursorEl.style.display = 'inline';
+					}
+				}
+				cursorEl.style.display = 'none';
+				typeHero();
+		</script>
 </section>
