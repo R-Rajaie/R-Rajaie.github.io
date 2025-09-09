@@ -7,32 +7,57 @@ import Footer from "../components/Footer.astro";
 import { projects } from "../data/projects";
 ---
 <BaseLayout title="Your Name · Data Analyst" description="Projects, notes, and contact.">
-  <Nav />
-  <Hero />
+<Nav />
 
-  <section class="section">
-    <div class="container">
-      <h2 style="margin:0 0 10px">Featured Projects</h2>
-      <p class="muted" style="margin:0 0 18px">Case‑study style reports you can skim fast.</p>
-      <div class="grid projects-grid">
-        {projects.map(p => <ProjectCard project={p} />)}
-      </div>
-    </div>
-  </section>
 
-  <section id="writing" class="section">
-    <div class="container">
-      <h2 style="margin:0 0 12px">Writing</h2>
-      <p class="muted" style="margin:0 0 18px">Personal posts live on Medium; technical deep dives show up here.</p>
-      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
-        <div>
-          <div style="font-weight:700;">Medium</div>
-          <div class="muted">Thoughts on learning, career, and design.</div>
-        </div>
-        <a class="btn" href="https://medium.com/@yourhandle" target="_blank" rel="noopener">Read on Medium →</a>
-      </div>
-    </div>
-  </section>
+<main id="home">
+<Hero />
 
-  <Footer />
+
+<section id="projects" class="section">
+<div class="container">
+<h2 style="margin:0 0 10px">Projects</h2>
+<p class="muted" style="margin:0 0 18px">Click a card to open a short report.</p>
+<div class="grid projects-grid">
+{projects.map(p => <ProjectCard project={p} />)}
+</div>
+</div>
+</section>
+
+
+<section id="about" class="section">
+<div class="container">
+<h2 style="margin:0 0 12px">About</h2>
+<div class="columns">
+<div class="card">
+<h3 style="margin-top:0">Experience</h3>
+<ul>
+<li><strong>Data Analyst Intern</strong> — Startup XYZ (2024) <br/><span class="muted">ETL + reporting automation.</span></li>
+<li><strong>Lead Lifeguard & Trainer</strong> — Waterpark (2022–)</li>
+</ul>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Skills</h3>
+<div>
+<span class="tag">Python</span>
+<span class="tag">Pandas</span>
+<span class="tag">SQL</span>
+<span class="tag">Matplotlib</span>
+<span class="tag">ETL</span>
+<span class="tag">Dashboards</span>
+</div>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Education</h3>
+<p><strong>B.S. Data Science</strong> — SJSU (2026 expected)</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="writing" class="section">
+<div class="container">
+<h2 style="margin:0 0 12px">Writing</h2>
+<div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
 </BaseLayout>

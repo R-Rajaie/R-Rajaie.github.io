@@ -63,3 +63,8 @@ a:hover { text-decoration: underline; }
 
 /* Footer */
 .footer { padding: 40px 0; color: var(--muted); font-size: .95rem; }
+
+html { scroll-behavior: smooth; }
+.modal { border: none; padding: 0; background: transparent; }
+.modal::backdrop { background: rgba(0,0,0,.55); }
+.modal .modal-inner { width: min(760px, 92vw); }
