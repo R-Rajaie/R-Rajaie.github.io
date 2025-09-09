@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://r-rajaie.github.io',
-  output: 'static'
+  site: 'https://R-Rajaie.github.io',
+  base: '/R-Rajaie.github.io/',
 });
