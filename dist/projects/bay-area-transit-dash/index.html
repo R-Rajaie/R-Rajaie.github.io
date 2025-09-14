@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.svg"><meta name="description" content="Real‑time arrivals + historical reliability reports."><meta property="og:title" content="Bay Area Transit Dashboard · Your Name"><meta property="og:description" content="Real‑time arrivals + historical reliability reports."><meta property="og:image" content="/og-image.png"><title>Bay Area Transit Dashboard · Your Name</title><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"></head> <body>  <nav class="nav" id="site-nav"> <div class="container nav-inner"> <a class="logo" href="/#home">Ryan Rajaie</a> <div style="display:flex; gap:16px; align-items:center;"> <a href="/#home" class="nav-link">Home</a><a href="/#projects" class="nav-link">Projects</a><a href="/#about" class="nav-link">About</a><a href="/#blog" class="nav-link">Blog</a><a href="/#contact" class="nav-link">Contact</a> </div> </div> </nav> <script>
+// smooth scroll code (unchanged from prior version)
+document.addEventListener('DOMContentLoaded', () => {
+	document.querySelectorAll('.nav-link').forEach(link => {
+		link.addEventListener('click', function(e) {
+			const href = this.getAttribute('href');
+			if (href && href.startsWith('/#')) {
+				const id = href.replace('/#', '');
+				const section = document.getElementById(id);
+				if (section) {
+					section.classList.add('flash-section');
+					setTimeout(() => section.classList.remove('flash-section'), 600);
+				}
+			}
+		});
+	});
+});
+</script> <section class="section"> <div class="container"> <a href="/#projects" class="muted">← Back to Projects</a> <h1 style="margin:8px 0 6px">Bay Area Transit Dashboard</h1> <div class="muted" style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;"> <span>2025-02-02</span> <span>·</span> <span>JS • API • Dashboards</span> </div> <div class="card" style="margin-top:18px;"> <div><p>Prototyped an arrivals dashboard; added station views and headway variance metrics.</p></div> </div> </div> </section> <footer class="footer" id="contact"> <div class="container"> <hr class="hr"> <div class="grid" style="grid-template-columns:1fr auto; align-items:center; gap:16px; padding-top:16px;"> <div> <div>© 2025 Your Name</div> <div class="muted">i wanna intern at riot</div> </div> <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;"> <a href="mailto:you@example.com">e@mail.com</a> <span>·</span> <a href="https://github.com/youruser" target="_blank" rel="noopener">GitHub</a> <span>·</span> <a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a> </div> </div> </div> </footer>  </body></html>

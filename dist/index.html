@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.svg"><meta name="description" content="Projects, writing, and contact."><meta property="og:title" content="Ryan Rajaie · Data Scientist"><meta property="og:description" content="Projects, writing, and contact."><meta property="og:image" content="/og-image.png"><title>Ryan Rajaie · Data Scientist</title><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles/global.css"></head> <body>  <nav class="nav" id="site-nav"> <div class="container nav-inner"> <a class="logo" href="/#home">Ryan Rajaie</a> <div style="display:flex; gap:16px; align-items:center;"> <a href="/#home" class="nav-link">Home</a><a href="/#projects" class="nav-link">Projects</a><a href="/#about" class="nav-link">About</a><a href="/#blog" class="nav-link">Blog</a><a href="/#contact" class="nav-link">Contact</a> </div> </div> </nav> <script>
+// smooth scroll code (unchanged from prior version)
+document.addEventListener('DOMContentLoaded', () => {
+	document.querySelectorAll('.nav-link').forEach(link => {
+		link.addEventListener('click', function(e) {
+			const href = this.getAttribute('href');
+			if (href && href.startsWith('/#')) {
+				const id = href.replace('/#', '');
+				const section = document.getElementById(id);
+				if (section) {
+					section.classList.add('flash-section');
+					setTimeout(() => section.classList.remove('flash-section'), 600);
+				}
+			}
+		});
+	});
+});
+</script> <main id="home"> <section class="hero"> <div class="container"> <p class="muted">Hi, I’m</p> <h1 id="hero-typed"></h1> <p id="hero-subtext-wrapper"><span id="hero-subtext"></span><span id="hero-cursor" class="blinking-cursor">|</span></p> <div class="cta"> <a class="btn" href="/#projects">View Projects</a> <a class="btn ghost" href="/#contact">Contact Me</a> </div> </div> <script>
+			const heroText = "Ryan Rajaie —  catchy hook";
+			const subText = "i do blah blah blah. here you will find stuff";
+				const typedEl = document.getElementById('hero-typed');
+				const cursorEl = document.getElementById('hero-cursor');
+				const subTextEl = document.getElementById('hero-subtext');
+				let i = 0;
+				let j = 0;
+				function typeHero() {
+					if (i <= heroText.length) {
+						typedEl.textContent = heroText.slice(0, i);
+						i++;
+						setTimeout(typeHero, 32 + Math.random() * 40);
+					} else {
+						setTimeout(typeSubText, 350);
+					}
+				}
+				function typeSubText() {
+					if (j <= subText.length) {
+						subTextEl.textContent = subText.slice(0, j);
+						j++;
+						setTimeout(typeSubText, 7 + Math.random() * 13);
+					} else {
+						cursorEl.style.display = 'inline';
+					}
+				}
+				cursorEl.style.display = 'none';
+				typeHero();
+		</script> </section> <!-- Projects --> <section id="projects" class="section"> <div class="container"> <h2 style="margin:0 0 10px">Projects</h2> <p class="muted" style="margin:0 0 18px">Click a card to view a full report page.</p> <div class="grid projects-grid"> <a class="card" href="/projects/etl-pipeline-lightweight"> <div class="project-thumb">asdasdd</div> <h3 style="margin:12px 0 4px">sdadas</h3> <p class="muted" style="margin:0">sadasdasdasdas</p> <div class="project-tags"> <span class="tag-tile">Python</span><span class="tag-tile">Pandas</span><span class="tag-tile">SQLite</span> </div> </a><a class="card" href="/projects/lol-match-analytics"> <div class="project-thumb">LoL</div> <h3 style="margin:12px 0 4px">sdfsdfsd</h3> <p class="muted" style="margin:0">Event‑level analysis with timeline visualizations; win rate deltas.</p> <div class="project-tags"> <span class="tag-tile">Python</span><span class="tag-tile">Viz</span><span class="tag-tile">Game Analytics</span> </div> </a><a class="card" href="/projects/bay-area-transit-dash"> <div class="project-thumb">Transit</div> <h3 style="margin:12px 0 4px">Bay Area Transit Dashboard</h3> <p class="muted" style="margin:0">Real‑time arrivals + historical reliability reports.</p> <div class="project-tags"> <span class="tag-tile">JS</span><span class="tag-tile">API</span><span class="tag-tile">Dashboards</span> </div> </a> </div> </div> </section> <!-- About --> <section id="about" class="section"> <div class="container"> <h2 style="margin:0 0 12px">About</h2> <div class="subhead">Professional Experience</div> <div class="stack"> <article class="card no-hover"> <h3 style="margin:0 0 6px;">Autonomy Intern — Startup XYZ</h3> <div class="muted">2024 • San Jose, CA</div> <p style="margin:10px 0 0;">
+blah balh blah job
+</p> <ul style="margin:10px 0 0 18px;"> <li>line 1</li> <li>line 2</li> <li>line 3</li> </ul> </article> <article class="card no-hover"> <h3 style="margin:0 0 6px;">Lead Lifeguard</h3> <div class="muted">2022 – Present • freakmont</div> <p style="margin:10px 0 0;">
+big chungus
+</p> </article> </div> <div class="subhead" style="margin-top:22px;">Education</div> <div class="stack"> <article class="card no-hover"> <h3 style="margin:0 0 6px;">B.S. Data Science — San José State University</h3> <div class="muted">Expected 2026</div> <p style="margin:10px 0 0;">
+blah blah blah
+</p> </article> </div> </div> </section> <!-- Blog (Medium link) --> <section id="blog" class="section"> <div class="container"> <h2 style="margin:0 0 12px">Blog</h2> <p class="muted" style="margin:0 0 18px">Personal posts on Medium</p> <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px;"> <div> <div style="font-weight:700;">Medium</div> <div class="muted">my blog (link broken) now</div> </div> <a class="btn" href="https://medium.com/@yourhandle" target="_blank" rel="noopener">Read my personal writings on Medium →</a> </div> </div> </section> </main>  <footer class="footer" id="contact"> <div class="container"> <hr class="hr"> <div class="grid" style="grid-template-columns:1fr auto; align-items:center; gap:16px; padding-top:16px;"> <div> <div>© 2025 Your Name</div> <div class="muted">i wanna intern at riot</div> </div> <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;"> <a href="mailto:you@example.com">e@mail.com</a> <span>·</span> <a href="https://github.com/youruser" target="_blank" rel="noopener">GitHub</a> <span>·</span> <a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a> </div> </div> </div> </footer>  </body></html>
