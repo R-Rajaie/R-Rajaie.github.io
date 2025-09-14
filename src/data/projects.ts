@@ -22,13 +22,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'lol-match-analytics',
-    title: 'League Match Analytics: Ward & Objective Timelines',
+    title: 'sdfsdfsd',
     short: 'LoL',
     summary: 'Event‑level analysis with timeline visualizations; win rate deltas.',
     date: '2025-03-14',
     tags: ['Python', 'Viz', 'Game Analytics'],
-    report: `<p>Parsed match timelines, mapped event coordinates, and computed ward lifetimes.
-    Built charts for objective control vs. win probability swings.</p>`
+    report: `<p>dfsimings.</p>`
   },
   {
     slug: 'bay-area-transit-dash',
