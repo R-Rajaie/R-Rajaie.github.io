@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --bg: #0e1116;
+      --text: #f5f5f5;
+      --accent: #00bcd4;
+      --card: #1a1f26;
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: linear-gradient(90deg, #0097a7, #006064);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    nav {
+      background-color: #121820;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .project {
+      background-color: var(--card);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .project img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+      margin: 0.4rem 0 0.8rem 0;
+    }
+    .tag {
+      background: var(--accent);
+      color: #000;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .project:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    footer {
+      text-align: center;
+      background-color: #121820;
+      color: #ccc;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .modal-content {
+      background: var(--card);
+      color: var(--text);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <p>Welcome to my sleek dark-style site hosted on GitHub Pages!</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm a data analyst and developer who loves building tools and visualizations. I enjoy exploring data-driven insights and creating elegant, performant web experiences. You can also read my writing on <a href="https://medium.com/@yourusername" target="_blank">Medium</a>.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project" onclick="openModal('Project 1: Data Dashboard', 'A responsive web-based dashboard visualizing live API data.', 'https://placehold.co/400x250/00bcd4/ffffff?text=Dashboard')">
+        <img src="https://placehold.co/400x250/00bcd4/ffffff?text=Dashboard" alt="Data Dashboard Preview">
+        <h3>Project 1: Data Dashboard</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Chart.js</span>
+        </div>
+        <p>Real-time API visualizations.</p>
+      </div>
+
+      <div class="project" onclick="openModal('Project 2: Portfolio Website', 'This portfolio itself!', 'https://placehold.co/400x250/0097a7/ffffff?text=Portfolio')">
+        <img src="https://placehold.co/400x250/0097a7/ffffff?text=Portfolio" alt="Portfolio Website Preview">
+        <h3>Project 2: Portfolio Website</h3>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">GitHub Pages</span>
+        </div>
+        <p>Minimal responsive design.</p>
+      </div>
+
+      <div class="project" onclick="openModal('Project 3: Machine Learning Model', 'An end-to-end ML pipeline for image classification.', 'https://placehold.co/400x250/1a1f26/ffffff?text=ML+Model')">
+        <img src="https://placehold.co/400x250/1a1f26/ffffff?text=ML+Model" alt="Machine Learning Model Preview">
+        <h3>Project 3: Machine Learning Model</h3>
+        <div class="tags">
+          <span class="tag">TensorFlow</span>
+          <span class="tag">Python</span>
+        </div>
+        <p>Classification with TensorFlow.</p>
+      </div>
+
+      <div class="project" onclick="openModal('Project 4: API Automation', 'Automated API data collection and storage system.', 'https://placehold.co/400x250/2c3e50/ffffff?text=API+Automation')">
+        <img src="https://placehold.co/400x250/2c3e50/ffffff?text=API+Automation" alt="API Automation Preview">
+        <h3>Project 4: API Automation</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Automation</span>
+        </div>
+        <p>Data ingestion and ETL pipeline.</p>
+      </div>
+
+      <div class="project" onclick="openModal('Project 5: Data Visualization Dashboard', 'Interactive dashboard with D3.js visualizations.', 'https://placehold.co/400x250/34495e/ffffff?text=Data+Viz')">
+        <img src="https://placehold.co/400x250/34495e/ffffff?text=Data+Viz" alt="Data Visualization Preview">
+        <h3>Project 5: Data Visualization Dashboard</h3>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">D3.js</span>
+        </div>
+        <p>Visual storytelling with data.</p>
+      </div>
+
+      <div class="project" onclick="openModal('Project 6: SQL Data Explorer', 'A browser-based SQL query interface for dataset exploration.', 'https://placehold.co/400x250/006064/ffffff?text=SQL+Explorer')">
+        <img src="https://placehold.co/400x250/006064/ffffff?text=SQL+Explorer" alt="SQL Data Explorer Preview">
+        <h3>Project 6: SQL Data Explorer</h3>
+        <div class="tags">
+          <span class="tag">SQLite</span>
+          <span class="tag">Flask</span>
+        </div>
+        <p>Web-based database interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out via <a href="mailto:example@email.com">email</a>, view my <a href="https://github.com/username" target="_blank">GitHub</a>, or follow my writing on <a href="https://medium.com/@yourusername" target="_blank">Medium</a>.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h2 id="modal-title"></h2>
+      <img id="modal-image" src="" alt="Project Image">
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, text, imgSrc) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-text').textContent = text;
+      document.getElementById('modal-image').src = imgSrc;
+      document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
