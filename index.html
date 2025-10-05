@@ -12,8 +12,23 @@
       --link: #ffd194;   /* distinct link color that reads well on dark bg */
       --card: #1a1f26;
     }
+    /*
+      Prefer Helvetica Neue with sensible fallbacks. Notes:
+      - "Helvetica Neue" is not freely hosted by Google Fonts; it is often available on macOS.
+      - If you need the exact font across platforms, self-host the .woff/.woff2 files and
+        uncomment and adjust the @font-face block below.
+    */
+    /* Example @font-face (self-host):
+    @font-face {
+      font-family: 'Helvetica Neue Custom';
+      src: url('/fonts/HelveticaNeue.woff2') format('woff2');
+      font-weight: 400 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    */
     body {
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Helvetica Neue', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica', Arial, sans-serif;
       margin: 0;
       background-color: var(--bg);
       color: var(--text);
