@@ -6,11 +6,14 @@
   <title>Ryan Rajaie</title>
   <style>
     :root {
-      --bg: #0e1116;
-      --text: #f5f5f5;
-      --accent: #ff7a59; /* warmer coral accent for tags/buttons */
-      --link: #ffd194;   /* distinct link color that reads well on dark bg */
-      --card: #1a1f26;
+      /* Discord-like chroma glow palette */
+      --bg: #0b1020;            /* deep navy */
+      --text: #e6eef8;          /* soft light text */
+      --accent: #5865f2;        /* blurple accent */
+      --link: #00e5ff;          /* neon cyan link/glow */
+      --card: #0f1724;          /* slightly lighter card */
+      --glow-accent: rgba(88,101,242,0.12);
+      --glow-cyan: rgba(0,229,255,0.08);
     }
     /*
       Prefer Helvetica Neue with sensible fallbacks. Notes:
@@ -30,15 +33,25 @@
     body {
       font-family: 'Helvetica Neue', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica', Arial, sans-serif;
       margin: 0;
-      background-color: var(--bg);
+      /* subtle chroma glow background: deep base with blurple + cyan glows */
+      background: radial-gradient(circle at 8% 18%, var(--glow-accent), transparent 8%),
+                  radial-gradient(circle at 92% 82%, var(--glow-cyan), transparent 9%),
+                  linear-gradient(180deg, #050613 0%, var(--bg) 50%);
       color: var(--text);
       transition: background 0.3s, color 0.3s;
     }
     header {
-      background: linear-gradient(90deg, #ff7a59, #ffb86b);
-      color: white;
+      /* semi-transparent square banner over the chroma background */
+      background: rgba(3,6,14,0.48);
+      color: var(--text);
       text-align: center;
       padding: 3rem 1rem;
+      position: relative;
+      z-index: 5;
+      border-radius: 0; /* keep square corners */
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.03);
     }
     header h1 {
       margin: 0;
@@ -97,12 +110,13 @@
       margin: 0.6rem 0 0 0;
     }
     .tag {
-      background: var(--accent);
-      color: #111;
-      padding: 0.25rem 0.5rem;
+      background: linear-gradient(180deg, rgba(88,101,242,0.95), rgba(88,101,242,0.85));
+      box-shadow: 0 6px 18px rgba(88,101,242,0.08);
+      color: #041122;
+      padding: 0.25rem 0.6rem;
       border-radius: 6px;
       font-size: 0.75rem;
-      font-weight: bold;
+      font-weight: 700;
     }
     .project:hover {
       transform: scale(1.03);
@@ -110,10 +124,17 @@
     }
     footer {
       text-align: center;
-      background-color: #121820;
-      color: #ccc;
-      padding: 1rem;
-      margin-top: 2rem;
+      /* semi-transparent square footer banner */
+      background: rgba(3,6,14,0.48);
+      color: var(--text);
+      padding: 1.25rem 1rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 3;
+      border-radius: 0; /* square corners */
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(255,255,255,0.03);
     }
     /* Modal */
     .modal {
@@ -179,19 +200,57 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
+    /* header contact icons */
+    .contact-icons .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      transition: background 0.12s, transform 0.12s, color 0.12s;
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .contact-icons .icon img {
+      width: 18px;
+      height: 18px;
+      display: block;
+      filter: brightness(0) invert(1); /* make dark svgs white on dark bg */
+    }
+    .contact-icons .icon:hover,
+    .contact-icons .icon:focus {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+      color: var(--link);
+      outline: none;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Ryan Rajaie</h1>
-    <p>My projects and how to reach me</p>
+    <div class="contact-icons" aria-hidden="false">
+      <!-- Email (image) -->
+      <a href="mailto:ryan.rajaie04@gmail.com" class="icon" aria-label="Email">
+        <img src="https://unpkg.com/heroicons@2.0.18/24/outline/envelope.svg" alt="Email icon">
+      </a>
+      <!-- GitHub (image) -->
+      <a href="https://github.com/R-Rajaie" target="_blank" class="icon" aria-label="GitHub">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub icon">
+      </a>
+      <!-- LinkedIn (image) -->
+      <a href="https://www.linkedin.com/in/ryan-rajaie/" target="_blank" class="icon" aria-label="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn icon">
+      </a>
+      <!-- Medium (image) -->
+      <a href="https://medium.com/@iiovemiku" target="_blank" class="icon" aria-label="Medium">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/medium.svg" alt="Medium icon">
+      </a>
+    </div>
   </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
   <section id="about">
     <h2>About Me</h2>
@@ -266,10 +325,7 @@
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out via <a href="mailto:ryan.rajaie04@gmail.com">email</a>, view my <a href="https://github.com/R-Rajaie" target="_blank">GitHub</a>, connect on <a href="https://www.linkedin.com/in/ryan-rajaie/">LinkedIn</a>, or follow my writing on <a href="https://medium.com/@iiovemiku" target="_blank">Medium</a>.</p>
-  </section>
+  
 
   <footer>
     <p>&copy; 2025 Ryan Rajaie</p>
