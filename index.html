@@ -94,7 +94,7 @@
       flex-wrap: wrap;
       gap: 0.4rem;
       justify-content: center;
-      margin: 0.4rem 0 0.8rem 0;
+      margin: 0.6rem 0 0 0;
     }
     .tag {
       background: var(--accent);
@@ -133,16 +133,25 @@
       color: var(--text);
       padding: 2rem;
       border-radius: 12px;
-      max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      width: min(1100px, 95vw);
+      max-width: 95vw;
+      max-height: 95vh;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.7);
       text-align: center;
       position: relative;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.18s ease;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
     }
     .modal-content img {
-      max-width: 100%;
+      width: 100%;
+      max-height: 50vh;
+      object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
     @keyframes fadeIn {
       from {opacity: 0; transform: scale(0.95);}
@@ -151,11 +160,13 @@
     /* general link styles inside content */
     body a {
       color: var(--link);
-      text-decoration: underline;
-      transition: color 0.15s;
+      text-decoration: none; /* remove underlines */
+      border-bottom: 1px solid transparent; /* subtle hover effect */
+      transition: color 0.15s, border-color 0.15s;
     }
     body a:hover {
       color: #ffffff;
+      border-color: rgba(255,255,255,0.12);
     }
 
     .close-btn {
@@ -184,7 +195,7 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I'm a senior at San Jose State University studying Data Science (minoring in Economics as well as Urban Studies) with experience at Silicon Valley startups building software. I have experience working with the full life cycle of data and have a deep passion for finding better ways to solve problems using data and graphs. <br><br> I love finding ways to use games to make a positive impact, and I also write articles on <a href="https://medium.com/@iiovemiku" target="_blank">Medium</a> for topics that interest me. <br><br>Below is more information about what I've done so far and my contact info. Feel free to contact me if you want to <a href="https://www.linkedin.com/in/ryan-rajaie/">connect</a>!</p>
+    <p>Hi! I'm a senior at San Jose State University studying Data Science (minoring in Economics as well as Urban Studies) with experience at Silicon Valley startups building software. I have experience working with the full life cycle of data and have a deep passion for finding better ways to solve problems using data and graphs. <br><br> I love finding ways to use games to make a positive impact, and I also write articles on <a href="https://medium.com/@iiovemiku" target="_blank">Medium</a> for topics that interest me. Those range anywhere from articles on urban planning to boba reviews to math to analytics, so consider checking it out. <br><br>Below is more information about what I've done so far and my contact info. Feel free to contact me if you want to <a href="https://www.linkedin.com/in/ryan-rajaie/">connect</a>!</p>
   </section>
 
   <section id="projects">
@@ -193,64 +204,64 @@
       <div class="project" onclick="openModal('Aqua Adventure Audit Analytics', 'blah blah actual stuff', 'https://placehold.co/400x250/00bcd4/ffffff?text=Dashboard')">
         <img src="https://placehold.co/400x250/00bcd4/ffffff?text=Dashboard" alt="Aqua Adventure Audit Analytics Preview">
         <h3>Aqua Adventure Audit Analytics</h3>
+        <p>Analysis to assess lifeguard performance and inform training improvements</p>
         <div class="tags">
           <span class="tag">Pandas</span>
           <span class="tag">Matplotlib</span>
           <span class="tag">Seaborn</span>
         </div>
-        <p>Analysis to assess lifeguard performance and inform training improvements</p>
       </div>
 
       <div class="project" onclick="openModal('Chiropractor Database', 'blah blah actual stuff', 'https://placehold.co/400x250/0097a7/ffffff?text=Portfolio')">
         <img src="https://placehold.co/400x250/0097a7/ffffff?text=Portfolio" alt="Chiropractor Database">
         <h3>Chiropractor Database</h3>
+        <p> Web application for managing a chiropractor clinic's patient database.</p>
         <div class="tags">
           <span class="tag">SQLite</span>
           <span class="tag">Spring Boot</span>
           <span class="tag">Typescript</span>
         </div>
-        <p> Web application for managing a chiropractor clinic's patient database.</p>
       </div>
 
       <div class="project" onclick="openModal('lock in.', 'blah blah actual stuff', 'https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/932/973/datas/medium.jpg')">
         <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/932/973/datas/medium.jpg" alt="lock in.">
         <h3>lock in.</h3>
+        <p>2024 Berkeley AI Hackathon award-winning AI Tutor using Hume's EVI to leverage RLHF (reinforcement learning through human feedback)</p>
         <div class="tags">
           <span class="tag">Hume's EVI (Claude 3.5 Sonnet)</span>
           <span class="tag">React</span>
         </div>
-        <p>2024 Berkeley AI Hackathon award-winning AI Tutor leveraging RLHF (reinforcement learning through human feedback)</p>
       </div>
 
       <div class="project" onclick="openModal('Spartan Analytics', 'blah blah actual stuff', 'https://placehold.co/400x250/2c3e50/ffffff?text=API+Automation')">
         <img src="https://placehold.co/400x250/2c3e50/ffffff?text=API+Automation" alt="Spartan Analytics">
         <h3>Spartan Analytics</h3>
+        <p>Python notebooks that scrape, store, and analyze mass player and match data from the Riot Games API</p>
         <div class="tags">
           <span class="tag">Pandas</span>
           <span class="tag">SQLite</span>
         </div>
-        <p>Python notebooks that scrape, store, and analyze mass player and match data from the Riot Games API</p>
       </div>
 
       <div class="project" onclick="openModal('Grocery Store Scraper', 'blah blah actual stuff', 'https://placehold.co/400x250/34495e/ffffff?text=Data+Viz')">
         <img src="https://placehold.co/400x250/34495e/ffffff?text=Data+Viz" alt="Grocery Store Scraper">
         <h3>Grocery Store Scraper</h3>
+        <p>Collection of scripts that scrape location information from a variety of grocery stores' websites.</p>
         <div class="tags">
           <span class="tag">Pandas</span>
           <span class="tag">BeautifulSoup</span>
           <span class="tag">Selenium</span>
         </div>
-        <p>Collection of scripts that scrape location information from a variety of grocery stores' websites.</p>
       </div>
 
       <div class="project" onclick="openModal('Modeling Elo Systems with Stochastic Processes', 'blah blah actual stuff', 'https://placehold.co/400x250/006064/ffffff?text=SQL+Explorer')">
         <img src="https://placehold.co/400x250/006064/ffffff?text=SQL+Explorer" alt="Modeling Elo Systems with Stochastic Processes">
         <h3>Modeling Elo Systems with Stochastic Processes</h3>
+        <p>Using concepts such as first-passage time, the ballot problem, and random walks to model and analyze Elo rating systems.</p>
         <div class="tags">
           <span class="tag">Markov Chains</span>
           <span class="tag">Probability Theory</span>
         </div>
-        <p>Using concepts such as first-passage time, the ballot problem, and random walks to model and analyze Elo rating systems.</p>
       </div>
     </div>
   </section>
